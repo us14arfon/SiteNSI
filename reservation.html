@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Voyage Beyond | Reservation</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="page">
+    <header>
+      <a href="mainpage.html" class="brand"><span>V</span>Voyage Beyond</a>
+      <nav>
+        <a href="mainpage.html">Home</a>
+        <a href="reservation.html" class="active">Reservation</a>
+        <a href="mainpage.html#destinations">Destinations</a>
+        <a href="mainpage.html#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main class="reservation-grid">
+      <section class="booking-panel">
+        <div class="section-heading">
+          <div>
+            <h2>Reserve your next voyage</h2>
+            <p>Choose your mission, cabin, and optional experiences to build a custom interstellar booking.</p>
+          </div>
+        </div>
+
+        <form class="reservation-form" id="reservationForm">
+          <div class="form-card">
+            <div class="card-header">
+              <span>1</span>
+              <div>
+                <h3>Mission selection</h3>
+                <p>Pick the destination and launch details for your journey.</p>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="destination">Destination</label>
+              <select id="destination" name="destination" data-price="12500">
+                <option value="Kepler-186f" data-price="12500">Kepler-186f — Ocean gateways · 12,500 cred</option>
+                <option value="Gliese 581g" data-price="14200">Gliese 581g — Crystal forests · 14,200 cred</option>
+                <option value="Omega Deep" data-price="16800">Omega Deep — Orbital luxury · 16,800 cred</option>
+              </select>
+            </div>
+
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="departure">Departure date</label>
+                <input type="date" id="departure" name="departure" value="2039-08-12">
+              </div>
+
+              <div class="form-group">
+                <label for="passengers">Passengers</label>
+                <input type="number" id="passengers" name="passengers" min="1" max="6" value="1">
+              </div>
+            </div>
+          </div>
+
+          <div class="form-card">
+            <div class="card-header">
+              <span>2</span>
+              <div>
+                <h3>Cabin class</h3>
+                <p>Select the comfort tier that fits your voyage.</p>
+              </div>
+            </div>
+
+            <div class="option-list">
+              <label class="option-tile">
+                <input type="radio" name="cabin" value="Explorer" data-price="0" checked>
+                <div>
+                  <strong>Explorer</strong>
+                  <span>Standard cabin with panoramic viewport.</span>
+                </div>
+                <small>0 cred</small>
+              </label>
+
+              <label class="option-tile">
+                <input type="radio" name="cabin" value="Navigator" data-price="5400">
+                <div>
+                  <strong>Navigator</strong>
+                  <span>Spacious suite with dedicated crew service.</span>
+                </div>
+                <small>+5,400 cred</small>
+              </label>
+
+              <label class="option-tile">
+                <input type="radio" name="cabin" value="Voyager" data-price="9800">
+                <div>
+                  <strong>Voyager</strong>
+                  <span>First-class cabin with private observation dome.</span>
+                </div>
+                <small>+9,800 cred</small>
+              </label>
+            </div>
+          </div>
+
+          <div class="form-card">
+            <div class="card-header">
+              <span>3</span>
+              <div>
+                <h3>Extras and add-ons</h3>
+                <p>Add premium services and expedition upgrades to your booking.</p>
+              </div>
+            </div>
+
+            <div class="option-list">
+              <label class="option-tile checkbox-tile">
+                <input type="checkbox" name="extras" value="Priority boarding" data-price="750">
+                <div>
+                  <strong>Priority boarding</strong>
+                  <span>Fast-track departure and preferred cabin placement.</span>
+                </div>
+                <small>+750 cred</small>
+              </label>
+
+              <label class="option-tile checkbox-tile">
+                <input type="checkbox" name="extras" value="Planetary excursion" data-price="2100">
+                <div>
+                  <strong>Planetary excursion</strong>
+                  <span>Guided surface tour on arrival day.</span>
+                </div>
+                <small>+2,100 cred</small>
+              </label>
+
+              <label class="option-tile checkbox-tile">
+                <input type="checkbox" name="extras" value="Zero-g yoga" data-price="480">
+                <div>
+                  <strong>Zero-g yoga</strong>
+                  <span>Wellness session with certified space guides.</span>
+                </div>
+                <small>+480 cred</small>
+              </label>
+
+              <label class="option-tile checkbox-tile">
+                <input type="checkbox" name="extras" value="Gourmet menu" data-price="320">
+                <div>
+                  <strong>Gourmet menu</strong>
+                  <span>Multi-course dining crafted for interstellar appetite.</span>
+                </div>
+                <small>+320 cred</small>
+              </label>
+            </div>
+          </div>
+
+          <button type="button" class="button" id="confirmButton">Confirm reservation</button>
+        </form>
+      </section>
+
+      <aside class="order-summary">
+        <div class="summary-card">
+          <div class="summary-header">
+            <div>
+              <p class="eyebrow">Booking summary</p>
+              <h3>Your travel order</h3>
+            </div>
+            <span class="status">Ready</span>
+          </div>
+
+          <div class="summary-item">
+            <span>Destination</span>
+            <strong id="summaryDestination">Kepler-186f</strong>
+          </div>
+
+          <div class="summary-item">
+            <span>Departure</span>
+            <strong id="summaryDeparture">2039-08-12</strong>
+          </div>
+
+          <div class="summary-item">
+            <span>Passengers</span>
+            <strong id="summaryPassengers">1</strong>
+          </div>
+
+          <div class="summary-item">
+            <span>Cabin</span>
+            <strong id="summaryCabin">Explorer</strong>
+          </div>
+
+          <div class="summary-item extras-list">
+            <span>Add-ons</span>
+            <ul id="summaryExtras">
+              <li>None selected</li>
+            </ul>
+          </div>
+
+          <div class="divider"></div>
+
+          <div class="total-row">
+            <span>Total estimated</span>
+            <strong id="summaryTotal">12,500 cred</strong>
+          </div>
+
+          <p class="summary-note">This estimate covers destination fare, cabin upgrade, and selected extras for the full party. Final confirmation will be sent after booking.</p>
+        </div>
+
+        <div class="summary-card support-card">
+          <h4>Need assistance?</h4>
+          <p>Our launch specialists are available for mission planning, group bookings, and custom itinerary support.</p>
+          <a href="mailto:travel@voyagebeyond.space" class="button-secondary">Contact support</a>
+        </div>
+      </aside>
+    </main>
+  </div>
+
+  <script>
+    const destinationSelect = document.getElementById('destination');
+    const departureInput = document.getElementById('departure');
+    const passengersInput = document.getElementById('passengers');
+    const cabinRadios = document.querySelectorAll('input[name="cabin"]');
+    const extraCheckboxes = document.querySelectorAll('input[name="extras"]');
+    const summaryDestination = document.getElementById('summaryDestination');
+    const summaryDeparture = document.getElementById('summaryDeparture');
+    const summaryPassengers = document.getElementById('summaryPassengers');
+    const summaryCabin = document.getElementById('summaryCabin');
+    const summaryExtras = document.getElementById('summaryExtras');
+    const summaryTotal = document.getElementById('summaryTotal');
+    const confirmButton = document.getElementById('confirmButton');
+
+    function formatCred(value) {
+      return value.toLocaleString('en-US') + ' cred';
+    }
+
+    function getSelectedCabin() {
+      return Array.from(cabinRadios).find(radio => radio.checked);
+    }
+
+    function updateSummary() {
+      const destination = destinationSelect.options[destinationSelect.selectedIndex].text.split(' — ')[0];
+      const destinationPrice = Number(destinationSelect.selectedOptions[0].dataset.price || 0);
+      const passengers = Number(passengersInput.value) || 1;
+      const departureDate = departureInput.value || 'TBD';
+      const cabinRadio = getSelectedCabin();
+      const cabinPrice = Number(cabinRadio.dataset.price || 0);
+      const cabinName = cabinRadio.value;
+
+      const selectedExtras = Array.from(extraCheckboxes).filter(checkbox => checkbox.checked);
+      const extrasTotal = selectedExtras.reduce((sum, checkbox) => sum + Number(checkbox.dataset.price || 0), 0);
+
+      const total = (destinationPrice + cabinPrice) * passengers + extrasTotal;
+
+      summaryDestination.textContent = destination;
+      summaryDeparture.textContent = departureDate;
+      summaryPassengers.textContent = passengers;
+      summaryCabin.textContent = cabinName;
+      summaryTotal.textContent = formatCred(total);
+
+      summaryExtras.innerHTML = '';
+      if (selectedExtras.length === 0) {
+        const empty = document.createElement('li');
+        empty.textContent = 'None selected';
+        summaryExtras.appendChild(empty);
+      } else {
+        selectedExtras.forEach(extra => {
+          const item = document.createElement('li');
+          item.textContent = `${extra.value} (+${formatCred(Number(extra.dataset.price))})`;
+          summaryExtras.appendChild(item);
+        });
+      }
+    }
+
+    destinationSelect.addEventListener('change', updateSummary);
+    departureInput.addEventListener('input', updateSummary);
+    passengersInput.addEventListener('input', updateSummary);
+    cabinRadios.forEach(radio => radio.addEventListener('change', updateSummary));
+    extraCheckboxes.forEach(checkbox => checkbox.addEventListener('change', updateSummary));
+
+    confirmButton.addEventListener('click', () => {
+      alert('Your reservation estimate has been updated. A launch specialist will contact you for final booking details.');
+    });
+
+    updateSummary();
+  </script>
+</body>
+</html>
